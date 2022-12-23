@@ -4,10 +4,10 @@
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone https://github.com/especializati/setup-docker-laravel.git my-project
+git clone https://github.com/rafPH1998/teste-f1ne.git
 ```
 ```sh
-cd my-project/
+cd teste-f1ne/
 ```
 
 Remova o versionamento (opcional)
