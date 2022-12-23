@@ -67,6 +67,11 @@ Gere a key do projeto Laravel
 php artisan key:generate
 ```
 
+Rode as migrations
+```sh
+php artisan migration
+```
+
 
 Acesse o projeto
 [http://localhost:porta_que_definiu_no_container](http://localhost:porta_que_definiu_no_container)
