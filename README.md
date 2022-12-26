@@ -81,4 +81,4 @@ php artisan db:seed
 ```
 
 Acesse o projeto
-[http://localhost:porta_que_definiu_no_container](http://localhost:porta_que_definiu_no_container/users)
+http://localhost:porta_que_definiu_no_container/users
