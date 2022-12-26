@@ -7,13 +7,24 @@ use App\Models\User;
 class UserService
 {
     public function __construct(
-        protected User $model
+        protected User $user
     ) {}
 
-    public function getListUsers(): object
+    public function getListClients(): object
     {
-        return $this->model
-                    ->with('phones')
+        return $this->user
+                    ->orderBy('id', 'DESC')
                     ->get();
+    }
+
+    public function createClients($data): object
+    {
+        return $this->user->create($data);
+    }
+
+    public function deleteClient(int $user)
+    {
+        $user = $this->user->findOrFail($user);
+        return $user->delete();
     }
 }

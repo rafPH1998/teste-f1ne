@@ -20,6 +20,8 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
+            'telephone'  => $this->faker->phoneNumber(),
+            'cellphone' => $this->faker->phoneNumber(),
         ];
     }
 }

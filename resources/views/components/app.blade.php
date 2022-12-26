@@ -8,15 +8,12 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        @vite('resources/css/app.css')
+        <script src="https://cdn.tailwindcss.com"></script>
 
     </head>
-    <body>
-        <div id="app">
-
+    <body class="bg-gray-800">
+        <div class="container px-5 py-10 mx-auto">
+            {{ $slot }}
         </div>
-
-
-        @vite('resources/js/app.js')
     </body>
 </html>

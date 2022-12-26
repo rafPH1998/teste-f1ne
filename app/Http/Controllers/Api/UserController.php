@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreClient;
 use App\Http\Resources\UserResource;
-use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
@@ -16,13 +17,16 @@ class UserController extends Controller
 
     public function index()
     {
-        $listUsers = $this->service->getListUsers();
-        return UserResource::collection($listUsers);
+        $listClients = $this->service->getListClients();
+        return UserResource::collection($listClients);
     }
 
-    public function store(Request $request)
+    public function store(StoreClient $request)
     {
-        //
+        $newClients = $this->service
+                            ->createClients($request->validated());
+        
+        return new UserResource($newClients);
     }
 
     public function show($id)
@@ -35,8 +39,9 @@ class UserController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy($user)
     {
-        //
+        $this->service->deleteClient($user);
+        return response()->json([], Response::HTTP_NO_CONTENT);
     }
 }
