@@ -18,10 +18,10 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'telephone'  => $this->faker->phoneNumber(),
-            'cellphone' => $this->faker->phoneNumber(),
+            'name'      => fake()->name(),
+            'email'     => fake()->unique()->safeEmail(),
+            'phone'     => '1144881228',
+            'cellphone' => '11966771228'
         ];
     }
 }

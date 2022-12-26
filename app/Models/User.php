@@ -23,29 +23,4 @@ class User extends Authenticatable
         );
     }
 
-    public function format_phone(string $phone): string 
-    {
-        $ac = substr($phone, 0, 2);
-        $prefix = substr($phone, 3, 4);
-        $suffix = substr($phone, 6);
-    
-        return "({$ac}) {$prefix}-{$suffix}";
-    }
-
-    protected function telephone(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => $value ? $this->format_phone($value) : 'Nenhum telefone cadastrado',
-        );
-    }
-
-    protected function cellphone(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => $value ? $this->format_phone($value) : 'Nenhum telefone cadastrado',
-        );
-    }
-
-    
-
 }

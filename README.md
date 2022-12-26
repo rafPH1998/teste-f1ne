@@ -25,7 +25,7 @@ cp .env.example .env
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
 APP_NAME="Projeto"
-APP_URL=http://localhost:porta_que_definiu_no_container
+APP_URL=http://localhost:porta_que_definiu_no_container/users
 
 DB_CONNECTION=mysql
 DB_HOST=mysql
@@ -50,17 +50,20 @@ docker-compose up -d
 ```
 
 
-Acesse o container app com o bash
+Acesse o container APP com o bash
 ```sh
 docker-compose exec app bash
 ```
 
+Sempre entre no container se desejar rodar comandos com php artisan...
+```sh
+docker-compose exec app bash
+```
 
 Instale as dependências do projeto
 ```sh
 composer install
 ```
-
 
 Gere a key do projeto Laravel
 ```sh
@@ -72,6 +75,10 @@ Rode as migrations
 php artisan migration
 ```
 
+Caso queira popular o banco com alguns dados
+```sh
+php artisan db:seed
+```
 
 Acesse o projeto
-[http://localhost:porta_que_definiu_no_container](http://localhost:porta_que_definiu_no_container)
+[http://localhost:porta_que_definiu_no_container](http://localhost:porta_que_definiu_no_container/users)

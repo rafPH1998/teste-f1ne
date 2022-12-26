@@ -5,8 +5,9 @@
                 {{Session::get('success')}}
             </x-alerts>
         @endif
-        <h1 class="text-white ml-9 mt-7">Adicionar um novo cliente</h1>
-        <form method="POST" class="px-10 py-10" action="{{route('users.store')}}">
+        <h1 class="text-white ml-9 mt-7">Editar cliente: {{$listClient->name}}</h1>
+        
+        <form method="POST" class="px-10 py-10" action="{{route('users.update', $listClient->id)}}">
             <div class="flex flex-wrap">
                 @csrf
                 <div class="w-full">
@@ -15,7 +16,7 @@
                         class="bg-gray-800 appearance-none rounded w-full py-2 px-3 text-white 
                         leading-tight focus:outline-none focus:shadow-outline" 
                         name="name" id="name"
-                        value="{{old('name')}}">
+                        value="{{$listClient->name}}">
                     @error('name')
                         <span class="text-red-500">{{$message}}</span>
                     @enderror
@@ -25,7 +26,7 @@
                     <label for="email" class="leading-7 text-sm text-white">Digite o email
                     <input type="email" 
                         name="email" id="email" 
-                        value="{{old('email')}}"
+                        value="{{$listClient->email}}"
                         class="bg-gray-800 appearance-none rounded w-full py-2 px-3 text-white 
                         leading-tight focus:outline-none focus:shadow-outline">
                         @error('email')
@@ -34,13 +35,13 @@
                 </div>
 
                 <div class="w-full">
-                    <label for="phone" class="leading-7 text-sm text-white">Digite o Telefone (opcional)
+                    <label for="telephone" class="leading-7 text-sm text-white">Digite o Telefone (opcional)
                     <input type="text"
-                        name="phone" id="phone" 
-                        value="{{old('phone')}}"
+                        name="telephone" id="telephone" 
+                        value="{{$listClient->telephone}}"
                         class="bg-gray-800 appearance-none rounded w-full py-2 px-3 text-white 
                             leading-tight focus:outline-none focus:shadow-outline">
-                    @error('phone')
+                    @error('telephone')
                         <span class="text-red-500">{{$message}}</span>
                     @enderror
                 </div>
@@ -48,7 +49,7 @@
                 <div class="w-full">
                     <label for="cellphone" class="leading-7 text-sm text-white">Digite o celular
                     <input type="text" 
-                        value="{{old('cellphone')}}"
+                        value="{{$listClient->cellphone}}"
                         name="cellphone" id="cellphone" 
                         class="bg-gray-800 appearance-none rounded w-full py-2 px-3 text-white 
                         leading-tight focus:outline-none focus:shadow-outline">
@@ -63,12 +64,11 @@
                     font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 
                     dark:bg-green-600 dark:hover:bg-green-700 
                     dark:focus:ring-green-800">
-                    Adicionar
+                    Atualizar
                 </button>
 
             </div>
             <a href="{{route('users.index')}}" class="ml-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar</a>
         </form>
     </div>
-
 </x-app>

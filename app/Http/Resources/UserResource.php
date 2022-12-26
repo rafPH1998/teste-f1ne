@@ -18,7 +18,7 @@ class UserResource extends JsonResource
             'id'         => $this->id,
             'name'       => $this->name,
             'email'      => $this->email,
-            'telephone'  => $this->telephone ? $this->telephone : 'Nenhum telefone cadastrado!',
+            'phone'      => $this->phone ? $this->phone : 'Nenhum telefone cadastrado!',
             'cellphone'  => $this->cellphone,
         ];
     }

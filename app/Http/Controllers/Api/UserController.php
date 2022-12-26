@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreClient;
 use App\Http\Resources\UserResource;
+use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,14 +30,25 @@ class UserController extends Controller
         return new UserResource($newClients);
     }
 
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        $clients = $this->service
+                        ->getClient($user);
+
+        return UserResource::make($clients);
     }
 
-    public function update(Request $request, $id)
+    public function update(StoreClient $request, $user)
     {
-        //
+        $this->service
+            ->updateClients(
+                $request->validated(),
+                $user
+            );
+
+        return response()->json([
+            'updated' => true
+        ]);
     }
 
     public function destroy($user)

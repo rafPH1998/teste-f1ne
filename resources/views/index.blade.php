@@ -61,14 +61,14 @@
                             {{$list->email}}
                         </td>
                         <td class="py-4 px-6">
-                            {{$list->telephone}}
+                            {{$list->phone}}
                         </td>
                         <td class="py-4 px-6">
                             {{$list->cellphone}}
                         </td>
                         <td>
-                            <a href="#">
-                                <img style="width: 25px;" src="{{url('/img/edit.svg')}}" alt="">
+                            <a href="{{route('users.show', $list->id)}}">
+                                <img style="width: 25px;" src="{{url('/img/edit.svg')}}" alt="Editar">
                             </a>
                         </td>
                         <td>
@@ -76,7 +76,7 @@
                                 @method('DELETE')
                                 @csrf                                 
                                 <button onclick="return confirm('Tem certeza que deseja excluir cliente?')">
-                                    <img style="width: 25px;" src="{{url('/img/trash.svg')}}" alt="">
+                                    <img style="width: 25px;" src="{{url('/img/trash.svg')}}" alt="Deletar">
                                 </button>
                             </form>
                         </td>
