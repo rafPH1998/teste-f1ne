@@ -82,3 +82,32 @@ php artisan db:seed
 
 Acesse o projeto
 http://localhost:porta_que_definiu_no_container/users
+
+
+Endpoints da API RESTFUL:
+
+```dosini
+Listagem dos clientes:
+GET /api/users
+
+Listagem de um cliente especifico:
+GET /api/users/1
+
+Cadastrar um cliente:
+POST /api/users/
+
+Editar um cliente:
+PUT /api/users/1
+
+Deletar um cliente:
+DELETE /api/users/1
+
+Listar detalhes de endereço de um cliente:
+GET /api/users/address/2
+
+Cadastrar um novo endereço para um cliente especifico:
+POST /api/users/address/2/details
+
+Deletar um endereço de um cliente especifico
+DELETE /api/users/address/1/destroy
+```
