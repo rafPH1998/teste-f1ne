@@ -20,6 +20,7 @@ class UserResource extends JsonResource
             'email'      => $this->email,
             'phone'      => $this->phone ? $this->phone : 'Nenhum telefone cadastrado!',
             'cellphone'  => $this->cellphone,
+            'address'    => AddressResource::collection($this->address)
         ];
     }
 }
