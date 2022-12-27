@@ -23,4 +23,9 @@ class User extends Authenticatable
         );
     }
 
+    public function address(): HasMany
+    {
+        return $this->hasMany(Address::class);
+    }
+
 }
