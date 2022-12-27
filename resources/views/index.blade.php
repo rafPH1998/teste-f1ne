@@ -46,6 +46,9 @@
                     <th scope="col">
                     
                     </th>
+                    <th scope="col">
+                    
+                    </th>
                 </tr>
             </thead>
             <tbody>                
@@ -67,16 +70,25 @@
                             {{$list->cellphone}}
                         </td>
                         <td>
-                            <a href="{{route('users.show', $list->id)}}">
-                                <img style="width: 25px;" src="{{url('/img/edit.svg')}}" alt="Editar">
+                            <a href="{{route('users.address', $list->id)}}" class="text-green-500">
+                                + endereço (adicionar)
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{route('users.address.details', $list->id)}}" class="text-yellow-500">ver endereços cadastrados ({{count($list->address)}})</a>
+                        </td>
+                        <td>
+                            <a href="{{route('users.show', $list->id)}}" class="text-blue-500">
+                               editar
                             </a>
                         </td>
                         <td>
                             <form action="{{route('users.destroy', $list->id)}}" method="POST">
                                 @method('DELETE')
                                 @csrf                                 
-                                <button onclick="return confirm('Tem certeza que deseja excluir cliente?')">
-                                    <img style="width: 25px;" src="{{url('/img/trash.svg')}}" alt="Deletar">
+                                <button class="text-red-500" 
+                                        onclick="return confirm('Tem certeza que deseja excluir cliente?')">
+                                    excluír
                                 </button>
                             </form>
                         </td>
