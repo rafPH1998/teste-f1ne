@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,12 @@ Route::delete('/users/{user}/delete', [UserController::class, 'destroy'])->name(
 2 - Jeito que eu mais gosto de deixar as rotas
 */
 Route::resource('users', UserController::class);
+
+/*
+Route Address
+*/
+
+Route::get('users/address/{user}', [AddressController::class, 'index'])->name('users.address');
+Route::post('users/address/{user}', [AddressController::class, 'store'])->name('users.address.store');
+Route::get('users/address/{user}/details', [AddressController::class, 'details'])->name('users.address.details');
+Route::delete('users/address/{address}/destroy', [AddressController::class, 'destroy'])->name('users.address.destroy');
