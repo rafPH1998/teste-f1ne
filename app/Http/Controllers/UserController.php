@@ -62,4 +62,6 @@ class UserController extends Controller
             ->route('users.index')
             ->with('success', 'Cliente deletado com sucesso!');
     }
+
+    
 }
