@@ -5,7 +5,7 @@
                 {{Session::get('success')}}
             </x-alerts>
         @endif
-        <h1 class="text-white ml-9 mt-7">Editarrrrr cliente: {{$listClient->name}}</h1>
+        <h1 class="text-white ml-9 mt-7">Editar cliente: {{$listClient->name}}</h1>
         
         <form method="POST" class="px-10 py-10" action="{{route('users.update', $listClient->id)}}">
             <div class="flex flex-wrap">

@@ -17,7 +17,7 @@ class StoreClient extends FormRequest
         $id = $this->user;
 
         return [
-            'name'      => ['required', Rule::unique('users')->ignore($id)],
+            'name'      => ['required', 'min:2', Rule::unique('users')->ignore($id)],
             'email'     => ['required', Rule::unique('users')->ignore($id)],
             'phone'     => ['nullable', 'min:10', 'max:10', Rule::unique('users')->ignore($id)],
             'cellphone' => ['required', 'min:11', 'max:11', Rule::unique('users')->ignore($id)],
